@@ -41,5 +41,8 @@ opt.modifiable = true
 -- opt.guicursor ?
 opt.encoding = "UTF-8"
 
+opt.termguicolors = true
+
+
 -- use :set all and :options to understand the options
 -- TODO: read other options
