@@ -77,7 +77,7 @@ local config = function()
 
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
-	local flake8 = require("efmls-configs.linters.flake8")
+	-- local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
 	local shellcheck = require("efmls-configs.linters.shellcheck")
 	local shfmt = require("efmls-configs.formatters.shfmt")
@@ -127,7 +127,7 @@ return {
 	config = config,
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-    -- check nvim-lsp-file-operations capabilities
+		-- check nvim-lsp-file-operations capabilities
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",

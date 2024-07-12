@@ -24,3 +24,20 @@ keymap.set("v", ">", ">gv")
 -- Comment
 vim.api.nvim_set_keymap("n", "<leader>/", "gcc", { noremap = false, desc = "Toggle Comment" })
 vim.api.nvim_set_keymap("v", "<leader>/", "gcc", { noremap = false, desc = "Toggle Comment" })
+
+--line number
+function ToggleLineNumbers()
+	local number = vim.wo.number
+	local relativenumber = vim.wo.relativenumber
+	if number == true and relativenumber == true then
+		vim.wo.number = true
+		vim.wo.relativenumber = false
+	elseif number == true and relativenumber == false then
+		vim.wo.number = false
+		vim.wo.relativenumber = true
+	else
+		vim.wo.number = true
+		vim.wo.relativenumber = true
+	end
+end
+vim.api.nvim_set_keymap("n", "<leader>wn", "<cmd>lua ToggleLineNumbers()<CR>", { desc = "Toggle line number" })

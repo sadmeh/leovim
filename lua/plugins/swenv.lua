@@ -1,5 +1,10 @@
 return {
 	"AckslD/swenv.nvim",
+	config = {
+		post_set_venv = function()
+			vim.cmd.LspRestart()
+		end,
+	},
 	keys = {
 		{
 			"<leader>en",
