@@ -94,20 +94,25 @@ return {
 			desc = "Terminate",
 		},
 		{
-			"<leader>dr",
+			"<leader>dp",
 			function()
 				require("dap").repl.toggle()
 			end,
-			{ desc = "REPL" },
+			desc = "REPL",
 		},
-
 		{
 			"<leader>dw",
 			function()
 				require("dapui").float_element("watches")
 			end,
-			{ desc = "Watches" },
+			desc = "Watches",
 		},
+		{ "<leader>dn", require("dap").step_over, desc = "Step Over" },
+		{ "<leader>di", require("dap").step_into, desc = "Step Into" },
+		{ "<leader>do", require("dap").step_out, desc = "Step Out" },
+		{ "<leader>dr", require("dap").restart, desc = "Restart(Again)" },
+		{ "<leader>ds", require("dap").stop, desc = "Stop" },
+		{ "<leader>dl", require("dap").run_last, desc = "Run Last Debug Session" },
 	},
 }
 

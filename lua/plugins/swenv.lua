@@ -11,7 +11,7 @@ return {
 			function()
 				require("swenv.api").pick_venv()
 			end,
-			"Select Python Virtual Env",
+			desc = "Select Python Virtual Env",
 		},
 	},
 }

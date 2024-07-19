@@ -15,6 +15,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			-- require("telescope").extensions.file_browser.file_browser({cwd=current_dir})
 			require("telescope.builtin").find_files()
 		else
+			if vim.fn.argc() > 0 then
+				-- A file is passed to Neovim, do nothing
+				return
+			end
 			-- open project selection
 			require("telescope").extensions.project.project({})
 		end

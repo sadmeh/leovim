@@ -77,6 +77,7 @@ local config = function()
 
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
+	local prettier = require("efmls-configs.formatters.prettier")
 	-- local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
 	local shellcheck = require("efmls-configs.linters.shellcheck")
@@ -86,6 +87,8 @@ local config = function()
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
+			"javascript",
+			"json",
 			"python",
 			"sh",
 		},

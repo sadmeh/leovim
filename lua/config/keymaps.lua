@@ -16,6 +16,7 @@ keymap.set("n", "<leader>wsv", ":vsplit<CR>", opts)
 vim.api.nvim_set_keymap("n", "wmt", '<cmd>lua require("maximizer").toggle()<CR>', { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "wmm", '<cmd>lua require("maximizer").maximize()<CR>', { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "wmr", '<cmd>lua require("maximizer").restore()<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>o", ":only<CR>", { noremap = true, silent = true })
 
 -- Indent
 keymap.set("v", "<", "<gv")
@@ -41,3 +42,6 @@ function ToggleLineNumbers()
 	end
 end
 vim.api.nvim_set_keymap("n", "<leader>wn", "<cmd>lua ToggleLineNumbers()<CR>", { desc = "Toggle line number" })
+
+vim.api.nvim_set_keymap("n", "<leader>ip", "<cmd>term ipython %<CR>", { desc = "Run In Terminal" })
+vim.api.nvim_set_keymap("n", "<leader>ss", "<cmd>source %<CR>", { desc = "Source Current File" })
