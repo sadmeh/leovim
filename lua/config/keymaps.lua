@@ -43,5 +43,5 @@ function ToggleLineNumbers()
 end
 vim.api.nvim_set_keymap("n", "<leader>wn", "<cmd>lua ToggleLineNumbers()<CR>", { desc = "Toggle line number" })
 
-vim.api.nvim_set_keymap("n", "<leader>ip", "<cmd>term ipython %<CR>", { desc = "Run In Terminal" })
+vim.api.nvim_set_keymap("n", "<leader>rr", "<cmd>term ipython %<CR>", { desc = "Run In Terminal" })
 vim.api.nvim_set_keymap("n", "<leader>ss", "<cmd>source %<CR>", { desc = "Source Current File" })

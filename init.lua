@@ -1,5 +1,8 @@
 require("config.lazy")
 
+-- TODO: find how to print method called input and return in tests
+-- TODO: fix python cashed on test file
+-- TODO: how to scroll down on test result
 -- TODO: check the noice plugin
 -- TODO: see is there any benefit to install lualine or other alternatives
 

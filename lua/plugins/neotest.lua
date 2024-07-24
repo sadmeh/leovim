@@ -80,9 +80,17 @@ return {
 		{
 			"<leader>tt",
 			function()
-				require("neotest").run.run()
+				require("neotest").run.run({ enter = true })
 			end,
 			desc = "Run Nearest Test",
+		},
+
+		{
+			"<leader>tl",
+			function()
+				require("neotest").run.run_last({ strategy = "dap" })
+			end,
+			desc = "Debug Last Test",
 		},
 		{
 			"<leader>tp",
@@ -108,7 +116,7 @@ return {
 		{
 			"<leader>to",
 			function()
-				require("neotest").output.open()
+				require("neotest").output.open({ enter = true })
 			end,
 			desc = "Open Test Output",
 		},

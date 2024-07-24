@@ -1,9 +1,13 @@
 return {
 	"rcarriga/nvim-dap-ui",
-	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	dependencies = { "folke/neodev.nvim", "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
+
+		require("neodev").setup({
+			library = { plugins = { "nvim-dap-ui" }, types = true },
+		})
 		dapui.setup({
 			icons = { expanded = "▾", collapsed = "▸", current_frame = "»" },
 			mappings = {
@@ -28,10 +32,10 @@ return {
 				},
 				{
 					elements = {
-						-- "repl",
-						"console",
+						"repl",
+						-- "console",
 					},
-					size = 10,
+					size = 5,
 					position = "bottom",
 				},
 			},
@@ -93,6 +97,7 @@ return {
 			end,
 			desc = "Terminate",
 		},
+
 		{
 			"<leader>dp",
 			function()
@@ -113,6 +118,18 @@ return {
 		{ "<leader>dr", require("dap").restart, desc = "Restart(Again)" },
 		{ "<leader>ds", require("dap").stop, desc = "Stop" },
 		{ "<leader>dl", require("dap").run_last, desc = "Run Last Debug Session" },
+		{
+			"<leader>dB",
+			"<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+			desc = "Conditional Breakpoint",
+		},
+		{
+			"<leader>de",
+			function()
+				require("dapui").eval(nil, { enter = true })
+			end,
+			desc = "Eval",
+		},
 	},
 }
 
