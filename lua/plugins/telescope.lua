@@ -24,7 +24,13 @@ return {
 			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 			{ desc = "File Browser(Curr Buffer Path)" },
 		},
-		{ "<leader>ff", ":Telescope find_files<CR>", desc = "Find files" },
+		{
+			"<leader>ff",
+			function()
+				require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() })
+			end,
+			desc = "Find files",
+		},
 		{ "<leader>fh", ":Telescope help_tags<CR>", desc = "Help Tags" },
 		{ "<leader>fa", ":Telescope<CR>", desc = "All Telescope" },
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Find Buffers" },
@@ -39,6 +45,7 @@ return {
 			desc = "Projects",
 		},
 	},
+
 	-- change some options
 	config = {
 		defaults = {
@@ -69,7 +76,7 @@ return {
 			project = {
 				hidden_files = false,
 				base_dirs = {
-					{ path = "~/projects/assistant", max_depth = 1 },
+					{ path = "~/ai/data/assistant", max_depth = 1 },
 				},
 				-- default for on_project_selected = find project files
 				on_project_selected = function(prompt_bufnr)

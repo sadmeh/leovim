@@ -13,6 +13,12 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set("n", "<leader>ldp", ":Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to prev diagnostic in buffer
 	-- vim.keymap.set("n", "<leader>ldn", ":Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+	vim.keymap.set(
+		"n",
+		"<leader>llf",
+		':lua vim.lsp.buf.format({ name = "efm", async = true })<CR>',
+		{ desc = "format" }
+	)
 
 	if client.name == "pyright" then
 		vim.keymap.set("n", "<Leader>loi", "PyrightOrganizeImports", opts)
@@ -102,9 +108,10 @@ local config = function()
 		},
 		settings = {
 			languages = {
+				json = { prettier },
 				lua = { luacheck, stylua },
 				sh = { shellcheck, shfmt },
-				python = { flake8, black },
+				python = { black },
 			},
 		},
 	})

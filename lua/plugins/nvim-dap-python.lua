@@ -6,7 +6,9 @@ return {
 		"recarriga/nvim-dap-ui",
 	},
 	config = function(_, opts)
-		local path = "iPython"
-		require("dap-python").setup(path)
+		local path = "ipython"
+		local dap = require("dap-python")
+		dap.setup(path)
+		dap.test_runner = "unittest"
 	end,
 }

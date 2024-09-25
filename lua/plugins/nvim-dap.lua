@@ -12,6 +12,7 @@ return {
 			command = "kitty", -- Replace with your terminal emulator
 			args = { "nvim-dap", "ui" },
 		}
+		dap.set_log_level("TRACE")
 		-- vim.highlight.create("DapBreakpoint", { ctermbg = 0, guifg = "#993939", guibg = "#31353f" }, false)
 		-- vim.highlight.create("DapLogPoint", { ctermbg = 0, guifg = "#61afef", guibg = "#31353f" }, false)
 		-- vim.highlight.create("DapStopped", { ctermbg = 0, guifg = "#98c379", guibg = "#31353f" }, false)
@@ -42,15 +43,15 @@ return {
 		})
 
 		-- setup dap config by VsCode launch.json file
-		local vscode = require("dap.ext.vscode")
-		local json = require("plenary.json")
-		vscode.json_decode = function(str)
-			return vim.json.decode(json.json_strip_comments(str))
-		end
-
-		-- Extends dap.configurations with entries read from .vscode/launch.json
-		if vim.fn.filereadable(".vscode/launch.json") then
-			vscode.load_launchjs()
-		end
+		-- local vscode = require("dap.ext.vscode")
+		-- local json = require("plenary.json")
+		-- vscode.json_decode = function(str)
+		-- 	return vim.json.decode(json.json_strip_comments(str))
+		-- end
+		--
+		-- -- Extends dap.configurations with entries read from .vscode/launch.json
+		-- if vim.fn.filereadable(".vscode/launch.json") then
+		-- 	vscode.load_launchjs()
+		-- end
 	end,
 }

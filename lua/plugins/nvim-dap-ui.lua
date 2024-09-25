@@ -32,11 +32,11 @@ return {
 				},
 				{
 					elements = {
-						"repl",
-						-- "console",
+						-- "repl",
+						"console",
 					},
-					size = 5,
-					position = "bottom",
+					size = 40,
+					position = "right",
 				},
 			},
 			floating = {
