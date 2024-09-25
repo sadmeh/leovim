@@ -83,6 +83,7 @@ return {
 					-- Do anything you want in here. For example:
 					local project_actions = require("telescope._extensions.project.actions")
 					project_actions.change_working_directory(prompt_bufnr, false)
+					require("lazygit.utils").project_root_dir()
 					require("telescope.builtin").find_files()
 				end,
 			},
